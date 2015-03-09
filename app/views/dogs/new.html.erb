@@ -1,15 +1,28 @@
+<div class="text-center">
+<h1> <%= image_tag current_user.image_url, class: "img-responsive img-circle img-thumbnail home-image owner-img" %> Welcome <%= current_user.first_name %> ! </h1>
+</div>
+
+  <h3 class="text-center"> To get started, setup a dog profile: </h3>
+<div class="dog-form">
+
 <%= bootstrap_form_for [@dog], :html => { multipart: true }  do |f| %>
+<h3> Dog Information: </h3>
 <%= f.text_field :name %>
 <%= f.text_field :age %>
 <%= f.text_field :weight %>
 <%= f.text_field :breed %>
+</br>
+<h3> Address: <em>We will not share your address in any way.</em></h3>
 <%= f.text_field :street %>
 <%= f.text_field :state %>
 <%= f.text_field :zipcode %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.fields_for :images do |i| %>
+</br>
+<h3> Profile Image </h3>
 <%= i.file_field :img %>
 <%= f.submit "Submit", class: "btn btn-success" %>
 <%= link_to "Cancel", root_path, class:"btn btn-default" %>
 <% end %>
 <% end %>
+</div>

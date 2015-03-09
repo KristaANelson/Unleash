@@ -2,9 +2,9 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => 'unleash-app',
-      :access_key_id => 'AKIAJIGB35M2CTBRZMMQ',
-      :secret_access_key => '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'
+      :bucket => ENV['BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECERET_KEY']
     }
   }
   # Settings specified here will take precedence over those in config/application.rb.
