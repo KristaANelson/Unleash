@@ -5,7 +5,7 @@ describe "The Welcome page" do
 
   it "has a title" do
     visit root_path
-    expect(page).to have_content("Unleash")
+    expect(page).to have_content("UNLEASH")
   end
 
   it "has link to login" do
