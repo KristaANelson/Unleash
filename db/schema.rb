@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309160703) do
+ActiveRecord::Schema.define(version: 20150309181153) do
+
+  create_table "dogs", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.integer  "weight"
+    t.string   "breed"
+    t.string   "city"
+    t.string   "state"
+    t.string   "street"
+    t.string   "zipcode"
+    t.integer  "user_id"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "dogs", ["user_id"], name: "index_dogs_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"

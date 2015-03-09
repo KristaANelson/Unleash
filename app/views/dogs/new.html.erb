@@ -1,0 +1,15 @@
+<%= bootstrap_form_for [@dog], :html => { multipart: true }  do |f| %>
+<%= f.text_field :name %>
+<%= f.text_field :age %>
+<%= f.text_field :weight %>
+<%= f.text_field :breed %>
+<%= f.text_field :street %>
+<%= f.text_field :state %>
+<%= f.text_field :zipcode %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<%= f.fields_for :images do |i| %>
+<%= i.file_field :img %>
+<%= f.submit "Submit", class: "btn btn-success" %>
+<%= link_to "Cancel", root_path, class:"btn btn-default" %>
+<% end %>
+<% end %>

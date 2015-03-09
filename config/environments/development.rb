@@ -1,4 +1,12 @@
 Rails.application.configure do
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'unleash-app',
+      :access_key_id => 'AKIAJIGB35M2CTBRZMMQ',
+      :secret_access_key => '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'
+    }
+  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
