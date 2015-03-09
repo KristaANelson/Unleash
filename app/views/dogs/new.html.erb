@@ -11,9 +11,11 @@
 <%= f.text_field :age %>
 <%= f.text_field :weight %>
 <%= f.text_field :breed %>
+<%= f.text_field :gender %>
 </br>
 <h3> Address: <em>We will not share your address in any way.</em></h3>
 <%= f.text_field :street %>
+<%= f.text_field :city %>
 <%= f.text_field :state %>
 <%= f.text_field :zipcode %>
 <%= f.hidden_field :user_id, :value => current_user.id %>

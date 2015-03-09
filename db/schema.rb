@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150309181153) do
     t.integer  "age"
     t.integer  "weight"
     t.string   "breed"
+    t.string   "gender"
     t.string   "city"
     t.string   "state"
     t.string   "street"

@@ -1,15 +1,4 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require_tree .
  *= require_self
  */
@@ -18,3 +7,35 @@
 @import "bootstrap"
 @import "font-awesome-sprockets"
 @import "font-awesome"
+
+$light_lime: #e9f198
+$teal: #5E8D9C
+$navy: #434854
+$red: #C42636
+$seafoam: #daede2
+
+.top-nav
+  padding-right: 15px
+
+#logout
+  color: white
+
+#matches
+  color: white
+
+a.dropdown-toggle
+  color: $light_lime
+
+.navbar-default
+  background-color: #8b8b8b
+
+.navbar
+  margin-bottom: 0px
+
+img.match.img-circle.img-thumbnail.home-image
+  height: 350px
+
+img.owner-img.img-circle.home-image
+  height: 50px
+  border: 1px solid white
+  margin: 4px

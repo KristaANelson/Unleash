@@ -1,1 +1,20 @@
-Welcome <%= current_user.first_name %>
+<%= render :partial => '/shared/nav'%>
+
+<div class="container-fluid text-center show-container">
+  <div class="row col-md-12 dog-profile">
+    <h3> <%= @dog.name %></h3>
+    <%= image_tag @dog.img.url, class: "img-responsive img-circle img-thumbnail home-image" %>
+    <h4 class="no-bottom-margin"> <%= @dog.city %> &middot <%= @dog.gender %> &middot <%= @dog.breed %></h4>
+    <h4 class="no-top-margin"> <%= @dog.weight %> lbs &middot <%= @dog.age %> yrs</h4>
+  </div>
+</div>
+  <!-- <div class="row col-md-12">
+    <div class="col-md-3"></div>
+    <div class="col-md-1 text-right red-paw"> <i class="fa fa-paw"></i> </div>
+    <div class="col-md-4">
+      <%= render :partial => '/shared/dog_view' %>
+      <h4 class="grey-font"> Owned by Frank <%= image_tag current_user.image_url, class: "img-circle home-image owner-img" %><h4>
+      </div>
+      <div class="col-md-1 text-left green-paw"> <i class="fa fa-paw"></i> </div>
+    </div>
+  </div> -->

@@ -5,6 +5,7 @@ class CreateDogs < ActiveRecord::Migration
       t.integer :age
       t.integer :weight
       t.string :breed
+      t.string :gender
       t.string :city
       t.string :state
       t.string :street
