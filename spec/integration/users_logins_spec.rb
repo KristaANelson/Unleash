@@ -1,6 +1,5 @@
 require "rails_helper"
 
-
 describe "The Welcome page" do
   include Capybara::DSL
 
