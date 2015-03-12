@@ -62,7 +62,7 @@ class Seed
 
   def generate_observations
     25.times do |i|
-      Observation.create(observer_id: (i+1), observed_id: Dog.last.id, liked: true )
+      Observation.create(observer_id: (2i+), observed_id: Dog.first.id, liked: true )
     end
     puts "It's a match for Dog.last.name"
   end
