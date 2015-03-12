@@ -1,0 +1,40 @@
+<%= render :partial => '/shared/nav'%>
+
+<div class="container-fluid text-center show-container">
+  <div class="dog-profile col-md-3">
+    <h3> <%= @observer.name %></h3>
+    <%= image_tag @observer.img.url, class: "img-responsive img-circle img-thumbnail home-image" %>
+    <h4 class="no-bottom-margin no-top-margin"> <%= @observer.city %> &middot <%= @observer.gender %> &middot <%= @observer.breed %></h4>
+    <h4 class="no-top-margin"> <%= @observer.weight %> lbs &middot <%= @observer.age %> yrs</h4>
+  </div>
+  <div class=" col-md-9">
+    <div class="col-md-3"></div>
+    <div class="col-md-1 text-right red-paw">
+      <%= bootstrap_form_for [@observation], :html => { multipart: true }  do |f| %>
+      <%= f.hidden_field :observer_id, :value => @observer.id %>
+      <%= f.hidden_field :observed_id, :value => @observed.id %>
+      <%= f.hidden_field :liked, :value => false%>
+      <button id="paw-btn">
+        <i class="fa fa-paw"></i>
+      </button>
+      <% end   %>
+    </div>
+    <div class="col-md-4">
+      <h1 class="dog_name"><%=@observed.name%></h1>
+      <%= image_tag @observed.img.url, class: "img-responsive match img-circle img-thumbnail" %>
+      <h4 class="no-bottom-margin"> <%=@observed.city %> &middot <%=@observed.gender%> &middot <%=@observed.breed%></h4>
+      <h4 class="no-top-margin"> <%= @observed.weight %> lbs &middot <%=@observed.age%> yrs</h4>
+      <h4 class="grey-font"> Owned by <%= @observed.user.first_name %> <%= image_tag @observed.user.image_url, class: "img-circle home-image owner-img" %><h4>
+    </div>
+    <div class="col-md-1 text-left green-paw">
+      <%= bootstrap_form_for [@observation], :html => { multipart: true }  do |f| %>
+      <%= f.hidden_field :observer_id, :value => @observer.id %>
+      <%= f.hidden_field :observed_id, :value => @observed.id %>
+      <%= f.hidden_field :liked, :value => true %>
+      <button id="paw-btn" >
+        <i class="fa fa-paw "></i>
+      </button>
+      <% end   %>
+      </div>
+  </div>
+</div>

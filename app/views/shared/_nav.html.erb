@@ -6,15 +6,8 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "MATCHES", "", id: "matches" %> </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" id="unleashed-nav" data-toggle="dropdown" role="button" aria-expanded="false">PROFILE <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Connections</a></li>
-            <li><a href="#">Update profile</a></li>
-            <li><a href="#">Find playdates</a></li>
-          </ul>
-        </li>
+        <li><%= link_to "SEARCH", new_observation_path, id: "matches" %> </li>
+        <li><%= link_to "MATCHES (#{matches.count})", matches_path, id: "matches" %> </li>
         <li><%= link_to "LOGOUT", logout_path, :method => :delete, id: "logout"%></li>
       </ul>
     </div>

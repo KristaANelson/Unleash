@@ -1,0 +1,19 @@
+<%= render :partial => '/shared/nav'%>
+
+<div class="container-fluid text-center show-container">
+  <% if @matches == 0 %>
+  <h1> No matches at this time, keep on <%= link_to "searching", new_observation_path %>! </h1>
+  <% else %>
+  <h1><%= image_tag current_user.dogs.last.img.url, class: "img-responsive img-circle img-thumbnail home-image" %> Matches for <%= current_user.dogs.last.name %>! <h1>
+    <% @matches.each do |match| %>
+    <div class="col-md-4">
+      <h1 class="dog_name"><%=match.name%></h1>
+      <%= image_tag match.img.url, class: "img-responsive match img-circle img-thumbnail" %>
+      <h4 class="no-bottom-margin"> <%=match.city %> &middot <%=match.gender%> &middot <%=match.breed%></h4>
+      <h4 class="no-top-margin"> <%= match.weight %> lbs &middot <%=match.age%> yrs</h4>
+      <h4 class="grey-font"> Set up a date! Contact: <%= match.user.email %><h4>
+      <h4 class="grey-font"> Owned by <%= match.user.first_name %> <%= image_tag match.user.image_url, class: "img-circle home-image owner-img" %><h4>
+    </div>
+    <% end %>
+  <% end %>
+</div>

@@ -2,7 +2,7 @@
 <h1> <%= image_tag current_user.image_url, class: "img-responsive img-circle img-thumbnail home-image owner-img" %> Welcome <%= current_user.first_name %> ! </h1>
 </div>
 
-  <h3 class="text-center"> To get started, setup a dog profile: </h3>
+  <h3 class="text-center"> In order to get started, tell us a little about your furry friend! </h3>
 <div class="dog-form">
 
 <%= bootstrap_form_for [@dog], :html => { multipart: true }  do |f| %>

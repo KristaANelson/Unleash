@@ -3,11 +3,15 @@ class DogsController < ApplicationController
     @dog = Dog.new
   end
 
+  def index
+    @dogs = Dog.all
+  end
+
   def create
     @dog = Dog.new(dog_params)
     @dog.img = params[:dog][:images][:img].tempfile
     if @dog.save
-      redirect_to user_path(current_user)
+      redirect_to new_observation_path
     else
       render :new
     end
