@@ -1,7 +1,7 @@
 class ObservationsController < ApplicationController
   def new
-    @observer = current_user.dogs.first
-    @observed = Dog.find(rand(100))
+    already_viewed = Observation.views(current_dog).map(&:id) << current_dog.id
+    @observed = Dog.where.not(id: already_viewed).shuffle.pop
     @observation = Observation.new
   end
 
@@ -13,6 +13,6 @@ class ObservationsController < ApplicationController
   private
 
   def observation_params
-    params.require(:observation).permit(:observer_id, :observed_id, :liked)
+    params.require(:observation).permit(:dog_id, :observed_id, :liked)
   end
 end

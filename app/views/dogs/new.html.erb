@@ -1,30 +1,40 @@
 <div class="text-center">
-<h1> <%= image_tag current_user.image_url, class: "img-responsive img-circle img-thumbnail home-image owner-img" %> Welcome <%= current_user.first_name %> ! </h1>
+<h1 class="dog-form-banner"> <%= image_tag current_user.image_url, class: "img-responsive img-circle img-thumbnail home-image intro-img" %> Welcome <%= current_user.first_name %> ! </h1>
 </div>
 
-  <h3 class="text-center"> In order to get started, tell us a little about your furry friend! </h3>
+  <h2 class="text-center intro"> In order to get started, tell us a little about your furry friend! </h2>
 <div class="dog-form">
 
-<%= bootstrap_form_for [@dog], :html => { multipart: true }  do |f| %>
-<h3> Dog Information: </h3>
-<%= f.text_field :name %>
-<%= f.text_field :age %>
-<%= f.text_field :weight %>
-<%= f.text_field :breed %>
-<%= f.text_field :gender %>
+<%= link_to "x", root_path, class:"btn btn-default cancel" %>
+<%= bootstrap_form_for [@dog],  :html => { multipart: true }  do |f| %>
+<h3 class="text-center"> About your pup: </h3><p class="text-center"> Tell us about your Furry Friend! </p>
+<div class="section">
+<%= f.text_field :name, hide_label: true, placeholder: "Name"  %>
+<%= f.select :breed, ["Breed", "Poodle", "Lab"], hide_label: true  %>
+<%= f.select :weight, ["Size", "Tiny: Less than 10 lbs", "Small: 10lbs - 30lbs", "Medium: 30lbs - 50lbs", "Large: Over 50lbs"], hide_label: true %>
+<%= f.select :age, ["Age Group", "Puppy: Less than a year", "Young: 1yr - 2yr", "Adult: 2yrs - 9yrs", "Senior: 10yrs and older"] , hide_label: true %>
+<%= f.select :gender, ["Gender", "Male", "Female"], hide_label: true %>
 </br>
-<h3> Address: <em>We will not share your address in any way.</em></h3>
-<%= f.text_field :street %>
-<%= f.text_field :city %>
-<%= f.text_field :state %>
-<%= f.text_field :zipcode %>
+</div>
+<h3 class="text-center"> Address: </h3>
+<p class="text-center"><em>We are about your privacy! We will not share your address. </em> </p>
+<div class="section">
+<%= f.text_field :street, hide_label: true, placeholder: "Street" %>
+<%= f.text_field :city, hide_label: true, placeholder: "City" %>
+<%= f.select :state, states, { hide_label: true, placeholder: "State"  } %>
+<%= f.text_field :zipcode, hide_label: true, placeholder: "Zipcode" %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
-<%= f.fields_for :images do |i| %>
 </br>
-<h3> Profile Image </h3>
-<%= i.file_field :img %>
-<%= f.submit "Submit", class: "btn btn-success" %>
-<%= link_to "Cancel", root_path, class:"btn btn-default" %>
+</div>
+<div class = "form-margin">
+  <h3 class="text-center"> Profile Image:</h3><p class="text-center"> So many cute pictures to choose from! </p>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 form-section text-center">
+      <%= f.file_field :img, :label => "Select Image to Upload ", class: "file"%> </br>
+    </div>
+  </div>
+<%= f.submit "Submit", class: "btn btn-default btn-lg" %>
 <% end %>
-<% end %>
+</div>
 </div>

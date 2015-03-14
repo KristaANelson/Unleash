@@ -3,6 +3,8 @@ $link-color:       $light_lime
 $link-hover-color: darken($link-color, 30%)
 $red: #C42636
 $mygrey: #d0d0d0
+$teal: #5E8D9C
+
 
 .welcome-msg
   margin-left: -55px
@@ -10,6 +12,9 @@ $mygrey: #d0d0d0
 
 .user_profile
   margin-top: 20px
+
+.intro
+  margin-top: 50px
 
 .no-bottom-margin
   margin-bottom: 0px
@@ -32,11 +37,17 @@ $mygrey: #d0d0d0
   padding: 0px
   border-style: none
 
+.cancel
+  float: right
+  font-size: 17px
+
+.form-margin
+  margin: 50px 100px 50px 100px
+
 .dog-profile
   height: 600px
-  margin: -5px 0px 0px -10px
   padding-bottom: 10px
-  background: lighten($mygrey, 10%)
+  border-right: 3px solid lighten($mygrey, 12%)
 
 .dog-profile h4
   line-height: 80%
@@ -46,13 +57,28 @@ $mygrey: #d0d0d0
   color: darken($mygrey, 10px)
 
 .dog-form
-  margin: 20px 300px 300px 300px
-  padding: 20px 100px 30px 100px
+  margin: 200px
+  margin-top: 50px
+  padding: 50px
   color: white
-  font-size: 20px
+  font-size: 18px
   background: grey
   border-radius: 10px
 
+.section
+  margin: 20px 100px
+
+.form-section
+  margin: 20px 0px 50px 0px
+  padding: 30px
+  background: rgb(190, 190, 190)
+  border-radius: 10px
+
+.dog-form-banner
+  background: $teal
+  margin-top: -10px
+  padding: 20px
+  color: white
 
 img.img-circle.img-thumbnail.home-image
   height: 150px
@@ -62,3 +88,8 @@ img.owner-img.img-circle.home-image
   height: 50px
   border: 1px solid white
   margin: 4px
+
+img.intro-img.img-circle.home-image
+  height: 125px
+  border: .5px solid white
+  margin: 15px
