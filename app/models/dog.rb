@@ -6,6 +6,5 @@ class Dog < ActiveRecord::Base
     storage: :s3,
     bucket: ENV['BUCKET_NAME']
 
-
   validates_attachment_content_type :img, :content_type => /\Aimage\/.*\Z/
 end

@@ -56,15 +56,15 @@ class Seed
       zipcode: Faker::Address.zip_code,
       img: "http://loremflickr.com/300/300/puppy"
       )
-      puts "Dog #{i}: #{dog.name} created!"
+      puts "Dog #{i + 1}: #{dog.name} created!"
     end
   end
 
   def generate_observations
     25.times do |i|
-      Observation.create(observer_id: 2*i, observed_id: Dog.first.id, liked: true )
+      Observation.create(dog_id: 2*i, observed_id: Dog.first.id, liked: true )
+    puts "It's a match for #{Dog.first.name}"
     end
-    puts "It's a match for Dog.last.name"
   end
 end
 

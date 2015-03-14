@@ -1,14 +1,25 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <p><%= image_tag current_user.image_url, class: "img-circle home-image owner-img" %>
-        Welcome, Krista </p>
+      <a class="navbar-brand" id="white" href="/">UNLEASH</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "SEARCH", new_observation_path, id: "matches" %> </li>
-        <li><%= link_to "MATCHES (#{matches.count})", matches_path, id: "matches" %> </li>
-        <li><%= link_to "LOGOUT", logout_path, :method => :delete, id: "logout"%></li>
+        <li> <%=link_to "SEARCH", new_observation_path, id: "white" %></li>
+        <li> <%=link_to "MATCHES (#{matches.count})" , new_observation_path, id: "white" %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" id="white" data-toggle="dropdown" role="button" aria-expanded="false">Acount Profile <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+        <li class="active" id="white"><%= image_tag current_user.image_url, class: "img-circle home-image owner-img" %> <span class="sr-only">(current)</span></li>
       </ul>
     </div>
   </div>
