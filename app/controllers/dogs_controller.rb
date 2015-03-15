@@ -9,7 +9,7 @@ class DogsController < ApplicationController
 
   def create
     @dog = Dog.new(dog_params)
-    @dog.img = params[:dog][:images][:img].tempfile
+    @dog.img = params[:dog][:img].tempfile
     if @dog.save
       redirect_to new_observation_path
     else

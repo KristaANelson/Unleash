@@ -29,7 +29,7 @@
     <div class="col-md-1 text-left green-paw">
       <%= bootstrap_form_for [@observation], :html => { multipart: true }  do |f| %>
       <%= f.hidden_field :dog_id, :value => current_dog.id %>
-      <%= f.hidden_field :observed_id, :value =>current_dog.id %>
+      <%= f.hidden_field :observed_id, :value => @observed.id %>
       <%= f.hidden_field :liked, :value => true %>
       <button id="paw-btn" >
         <i class="fa fa-paw "></i>

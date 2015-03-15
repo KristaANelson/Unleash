@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   def matches
     likes = Observation.likes(current_dog.id).map(&:observed_id)
     liked = Observation.liked_back(current_dog.id).map(&:dog_id)
-    match_ids = likes.select { |like| liked.include?(like)}
+    match_ids = liked.select { |like| likes.include?(like)}
     @matches = Dog.where(id: match_ids)
   end
 end
