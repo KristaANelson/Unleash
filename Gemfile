@@ -18,6 +18,7 @@ gem 'unicorn'
 gem 'aws-sdk'
 gem "paperclip", "~> 4.2"
 gem 'faker'
+gem 'geokit'
 
 group :production do
   gem 'pg'

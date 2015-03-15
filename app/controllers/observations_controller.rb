@@ -1,6 +1,6 @@
 class ObservationsController < ApplicationController
   def new
-    already_viewed = Observation.views(current_dog).map(&:id) << current_dog.id
+    already_viewed = Observation.views(current_dog).map(&:observed_id) << current_dog.id
     @observed = Dog.where.not(id: already_viewed).shuffle.pop
     @observation = Observation.new
   end

@@ -18,12 +18,24 @@ class Seed
       "http://atlantablackstar.com/wp-content/uploads/2014/03/oprah-winfrey-167024_w1000.jpg"]
   end
 
-  def dog_names
+  def age
+    ["Puppy: Less than a year", "Young: 1yr - 2yr", "Adult: 2yrs - 9yrs", "Senior: 10yrs and older"].shuffle.first
+  end
+
+  def size
+    ["Tiny: Less than 10 lbs", "Small: 10lbs - 30lbs", "Medium: 30lbs - 50lbs", "Large: Over 50lbs"].shuffle.first
+  end
+
+  def male_names
     %w(Max Buddy Charlie Jack Cooper Rocko Toby Tucker Jake Bear Duke Teddy Oliver Riley Bailey
     Bentley Milo Buster Cody Dexter Winston Murphy Leo Lucky Oscar Louie Zeus Henry
-    Sam Harley Baxter Gus Sammy Jackson Bella Lucy Daisy Molly Lola Sophie Sadie Maggie
+    Sam Harley Baxter Gus Sammy Jackson).shuffle[0]
+  end
+
+  def female_names
+    %w(Bella Lucy Daisy Molly Lola Sophie Sadie Maggie
     Chloe Bailey Roxy Zoey Lily Luna Coco Stella Gracie Abby Penny Zoe Ginger Ruby Rosie
-    Lilly Ellie Mia Sasha Lulu Pepper Nala Lexi Lady Emma Riley)
+    Lilly Ellie Mia Sasha Lulu Pepper Nala Lexi Lady Emma Riley).shuffle[0]
   end
 
   def generate_users
@@ -42,21 +54,37 @@ class Seed
   end
 
   def generate_dogs
-    99.times do |i|
+    50.times do |i|
       dog = Dog.create!(
       user_id: i + 1 ,
-      name: dog_names.shuffle[0],
-      age: rand(10) + 1,
-      weight: rand(50) + 10,
+      name: male_names,
+      age: age,
+      weight: size,
       breed: ["lab", "poodle", "golden"].shuffle.first,
-      gender: ["male", "female"].shuffle.first,
-      street: Faker::Address.street_address,
-      city: Faker::Address.city,
-      state: Faker::Address.state,
-      zipcode: Faker::Address.zip_code,
+      gender: "Male",
+      street: "",
+      city: "Denver",
+      state: "C0",
+      zipcode: "8020" + (rand(9) + 1).to_s,
       img: "http://loremflickr.com/300/300/puppy"
       )
       puts "Dog #{i + 1}: #{dog.name} created!"
+    end
+    48.times do |i|
+      dog = Dog.create!(
+      user_id: i + 51 ,
+      name: female_names,
+      age: age,
+      weight: size,
+      breed: ["lab", "poodle", "golden"].shuffle.first,
+      gender: "Female",
+      street: "",
+      city: "Denver",
+      state: "C0",
+      zipcode: "802" + (rand(11) + 1).to_s,
+      img: "http://loremflickr.com/300/300/puppy"
+      )
+      puts "Dog #{i + 51}: #{dog.name} created!"
     end
   end
 
