@@ -1,5 +1,5 @@
 class Dog < ActiveRecord::Base
-  attr_reader :address
+  attr_reader :address, :location
   belongs_to :user
   has_many :observations
 
@@ -15,5 +15,9 @@ class Dog < ActiveRecord::Base
 
   def location
     Geokit::Geocoders::GoogleGeocoder.geocode(address, :bias => 'us')
+  end
+
+  def distance(other_dog)
+    location.distance_to(other_dog.location).round(1)
   end
 end

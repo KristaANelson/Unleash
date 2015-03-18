@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   private
 
   def redirect_after_login
-    if current_user.dogs.count > 0
+    if current_user.dogs.count > 2
       redirect_to new_observation_path
     else
       redirect_to new_dog_path

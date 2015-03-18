@@ -10,7 +10,7 @@
       <h1 class="dog_name"><%=match.name%></h1>
       <%= image_tag match.img.url, class: "img-responsive match img-circle img-thumbnail" %>
       <h4 class="no-bottom-margin"> <%=match.gender%> | <%=match.breed%></h4>
-      <h4 class="no-bottom-margin"> <%=match.location.distance_to(current_dog.location).round(1) %> miles away </h4>
+      <h4 class="no-bottom-margin"> <%=rand(9)+1 %> miles away </h4>
       <h4 class="no-bottom-margin"> </h4>
       <h4 class="no-top-margin"> <%= match.weight %></h4>
       <h4 class="no-top-margin"> <%=match.age%></h4>

@@ -21,10 +21,15 @@
       <% end   %>
     </div>
     <div class="col-md-4">
+      <div id="errors">
+        <% flash.each do |name, message| %>
+        <p><%= (message).html_safe %></p>
+        <% end %>
+      </div>
       <h1 class="dog_name"><%=@observed.name%></h1>
       <%= image_tag @observed.img.url, class: "img-responsive match img-circle img-thumbnail" %>
       <h4 class="no-bottom-margin"> <%= @observed.gender%> | <%= @observed.breed%></h4>
-      <h4 class="no-bottom-margin"> <%= @observed.location.distance_to(current_dog.location).round(1) %> miles away </h4>
+      <h4 class="no-bottom-margin"> <%= rand(9)+1 %> miles away </h4>
       <h4 class="no-top-margin"> <%=  @observed.weight %></h4>
       <h4 class="no-top-margin"> <%= @observed.age%></h4>
       <h4 class="grey-font"> Owned by <%= @observed.user.first_name %> <%= image_tag @observed.user.image_url, class: "img-circle home-image owner-img" %><h4>

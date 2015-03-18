@@ -54,7 +54,7 @@ class Seed
   end
 
   def generate_dogs
-    50.times do |i|
+    20.times do |i|
       dog = Dog.create!(
       user_id: i + 1 ,
       name: male_names,
@@ -66,11 +66,11 @@ class Seed
       city: "Denver",
       state: "C0",
       zipcode: "8020" + (rand(9) + 1).to_s,
-      img: "http://loremflickr.com/300/300/puppy"
+      img: "http://loremflickr.com/300/300/puppy",
       )
       puts "Dog #{i + 1}: #{dog.name} created!"
     end
-    48.times do |i|
+    18.times do |i|
       dog = Dog.create!(
       user_id: i + 51 ,
       name: female_names,
@@ -82,7 +82,7 @@ class Seed
       city: "Denver",
       state: "C0",
       zipcode: "802" + (rand(11) + 1).to_s,
-      img: "http://loremflickr.com/300/300/puppy"
+      img: "http://loremflickr.com/300/300/puppy",
       )
       puts "Dog #{i + 51}: #{dog.name} created!"
     end
