@@ -54,7 +54,7 @@ class Seed
       age:      Selectors.age.shuffle[0],
       size:     Selectors.size.shuffle[0],
       breed:    Selectors.breed.shuffle[0],
-      gender:   Selectors.sex[1],
+      gender:   Selectors.gender[0],
       zipcode:  Selectors.zipcodes.shuffle[0],
       img:      "http://loremflickr.com/300/300/puppy",
       )
@@ -67,7 +67,7 @@ class Seed
       age:      Selectors.age.shuffle[0],
       size:     Selectors.size.shuffle[0],
       breed:    Selectors.breed.shuffle[0],
-      gender:    Selectors.gender[0],
+      gender:   Selectors.gender[1],
       zipcode:  Selectors.zipcodes.shuffle[0],
       img:      "http://loremflickr.com/300/300/puppy",
       )
