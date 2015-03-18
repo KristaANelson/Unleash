@@ -19,6 +19,7 @@ gem 'aws-sdk'
 gem "paperclip", "~> 4.2"
 gem 'faker'
 gem 'geokit'
+gem 'petfinder'
 
 group :production do
   gem 'pg'

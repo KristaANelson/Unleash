@@ -10,7 +10,7 @@
 <h3 class="text-center"> Your Pup! </h3><p class="text-center"> What makes them who they are?  </p>
 <div class="section">
 <%= f.text_field :name, hide_label: true, placeholder: "Name"  %>
-<%= f.select :breed, ["Breed", "Poodle", "Lab"], hide_label: true  %>
+<%= f.select :breed, Breed.list_array, hide_label: true  %>
 <%= f.select :weight, ["Size", "Tiny: Less than 10 lbs", "Small: 10lbs - 30lbs", "Medium: 30lbs - 50lbs", "Large: Over 50lbs"], hide_label: true %>
 <%= f.select :age, ["Age Group", "Puppy: Less than a year", "Young: 1yr - 2yr", "Adult: 2yrs - 9yrs", "Senior: 10yrs and older"] , hide_label: true %>
 <%= f.select :gender, ["Gender", "Male", "Female"], hide_label: true %>
