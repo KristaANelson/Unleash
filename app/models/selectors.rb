@@ -1,5 +1,5 @@
-class Breed
-  def self.list_array
+class Selectors
+  def self.breed
     [
       "Breed",
       "affenpinscher",
@@ -506,6 +506,69 @@ class Breed
       "wirehaired pointing griffon",
       "wirehaired vizsla",
       "yorkshire terrier"
+    ]
+  end
+
+  def self.breed_list
+    breed.unshift("Breed")
+  end
+
+  def self.size
+    ["Tiny: Less than 10 lbs", "Small: 10lbs - 30lbs", "Medium: 30lbs - 50lbs", "Large: Over 50lbs"]
+  end
+
+  def self.size_list
+    size.unshift("Size")
+  end
+
+  def self.age
+    ["Puppy: Less than a year", "Young: 1yr - 2yr", "Adult: 2yrs - 9yrs", "Senior: 10yrs and older"]
+  end
+
+  def self.age_list
+    age.unshift("Age")
+  end
+
+  def self.gender
+    ["Male", "Female"]
+  end
+
+  def self.gender_list
+    gender.unshift("Gender")
+  end
+
+  def self.zipcodes
+    [
+      "80110",
+      "80202",
+      "80203",
+      "80204",
+      "80205",
+      "80206",
+      "80207",
+      "80209",
+      "80210",
+      "80211",
+      "80214",
+      "80218",
+      "80219",
+      "80222",
+      "80223",
+      "80224",
+      "80226",
+      "80227",
+      "80230",
+      "80232",
+      "80236",
+      "80237",
+      "80238",
+      "80239",
+      "80246",
+      "80249",
+      "80264",
+      "80290",
+      "80293",
+      "80294"
     ]
   end
 end
