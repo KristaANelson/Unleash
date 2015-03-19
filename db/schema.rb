@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318170615) do
+ActiveRecord::Schema.define(version: 20150319054218) do
 
   create_table "dogs", force: :cascade do |t|
     t.string   "name"
@@ -32,16 +32,28 @@ ActiveRecord::Schema.define(version: 20150318170615) do
   add_index "dogs", ["user_id"], name: "index_dogs_on_user_id"
 
   create_table "observations", force: :cascade do |t|
+    t.integer  "observer_id"
     t.integer  "observed_id"
-    t.boolean  "liked"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "dog_id"
     t.string   "distance"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "liked"
   end
 
-  add_index "observations", ["dog_id"], name: "index_observations_on_dog_id"
   add_index "observations", ["observed_id"], name: "index_observations_on_observed_id"
+  add_index "observations", ["observer_id", "observed_id"], name: "index_observations_on_observer_id_and_observed_id", unique: true
+  add_index "observations", ["observer_id"], name: "index_observations_on_observer_id"
+
+  create_table "search_preferences", force: :cascade do |t|
+    t.integer "dog_id"
+    t.string  "breeds"
+    t.string  "ages"
+    t.string  "gender"
+    t.string  "sizes"
+    t.string  "distance"
+  end
+
+  add_index "search_preferences", ["dog_id"], name: "index_search_preferences_on_dog_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"

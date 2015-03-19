@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def states
-    @states = %w(State AK AL AR AZ CA CO CT DC DE FL GA HI IA ID IL IN KS KY LA MA MD ME MI MN MO MS MT NC ND NE NH NJ NM NV NY OH OK OR PA RI SC SD TN TX UT VA VT WA WI WV WY)
-  end
-
   def current_dog
-    @current_dog = current_user.dogs.first
+    if Dog.where(id: session[:dog]).count == 1
+      @current_dog = Dog.find(session[:dog])
+    else
+      @current_dog = current_user.dogs.first
+    end
   end
 
   def authorize!
@@ -20,9 +20,12 @@ class ApplicationController < ActionController::Base
   end
 
   def matches
-    likes = Observation.likes(current_dog.id).map(&:observed_id)
-    liked = Observation.liked_back(current_dog.id).map(&:dog_id)
-    match_ids = liked.select { |like| likes.include?(like)}
-    @matches = Dog.where(id: match_ids)
+    if current_dog
+      @matches = Observation.includes(:observed)
+                          .where(observer_id: current_dog.id,
+                                 observed_id: current_dog.matches)
+    else
+      []
+    end
   end
 end

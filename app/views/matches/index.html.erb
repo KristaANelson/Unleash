@@ -2,20 +2,30 @@
 
 <div class="container-fluid text-center show-container">
   <% if @matches == 0 %>
-  <h1> No matches at this time, keep on <%= link_to "searching", new_observation_path %>! </h1>
+  <h1> No matches at this time, keep on
+    <%= link_to "searching", new_observation_path %>!
+  </h1>
   <% else %>
-  <h1><%= image_tag current_user.dogs.first.img.url, class: "img-responsive img-circle img-thumbnail home-image" %> Matches for <%= current_user.dogs.first.name %>! <h1>
+  <h1><%= image_tag current_user.dogs.first.img.url,
+          class: "img-responsive img-circle img-thumbnail match" %>
+          Matches for
+      <%= current_user.dogs.first.name %>!
+  <h1>
     <% @matches.each do |match| %>
-    <div class="col-md-4">
-      <h1 class="dog_name"><%=match.name%></h1>
-      <%= image_tag match.img.url, class: "img-responsive match img-circle img-thumbnail" %>
-      <h4 class="no-bottom-margin"> <%=match.gender%> | <%=match.breed%></h4>
-      <h4 class="no-bottom-margin"> <%=rand(9)+1 %> miles away </h4>
+    <div class="col-md-3">
+      <h1 class="dog_name"><%=match.observed.name%></h1>
+      <%= image_tag match.observed.img.url,
+          class: "img-responsive match img-circle img-thumbnail" %>
+      <h4 class="no-bottom-margin"> <%=match.observed.gender%> |
+         <%=match.observed.breed%></h4>
+      <h4 class="no-bottom-margin"> <%=match.distance %> miles away </h4>
       <h4 class="no-bottom-margin"> </h4>
-      <h4 class="no-top-margin"> <%= match.weight %></h4>
-      <h4 class="no-top-margin"> <%=match.age%></h4>
-      <h4 class="grey-font"> Owned by <%= match.user.first_name %> <%= image_tag match.user.image_url, class: "img-circle home-image owner-img" %><h4>
-      <h4 class="grey-font"> Email: <%= match.user.email %><h4>
+      <h4 class="no-top-margin"> <%= match.observed.size %></h4>
+      <h4 class="no-top-margin"> <%=match.observed.age%></h4>
+      <h4 class="grey-font"> Owned by <%= match.observed.user.first_name %>
+        <%= image_tag match.observed.user.image_url,
+        class: "img-circle home-image owner-img" %><h4>
+      <h4 class="grey-font"> Email: <%= match.observed.user.email %><h4>
     </div>
     <% end %>
   <% end %>

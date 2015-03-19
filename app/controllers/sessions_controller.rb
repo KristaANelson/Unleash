@@ -1,13 +1,9 @@
 class SessionsController < ApplicationController
   def create
-    auth = request.env["omniauth.auth"]
-    @user = User.find_or_create_from_auth(auth)
-    if @user
-      session[:user_id] = @user.id
-      redirect_after_login
-    else
-      redirect_to root_path
-    end
+    @user = User.find_or_create_from_auth(request.env["omniauth.auth"])
+    session[:user_id] = @user.id
+    session[:dog_id] = @user.dogs.first if @user.dogs
+    redirect_after_login
   end
 
   def destroy
@@ -18,10 +14,8 @@ class SessionsController < ApplicationController
   private
 
   def redirect_after_login
-    if current_user.dogs.count > 2
-      redirect_to new_observation_path
-    else
-      redirect_to new_dog_path
-    end
+    return root_path if !current_user
+    return redirect_to new_dog_path if current_user.dogs.empty?
+    redirect_to new_observation_path
   end
 end

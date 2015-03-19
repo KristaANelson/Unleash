@@ -1,0 +1,53 @@
+<div class="text-center">
+  <h1 class="dog-form-banner">
+    <%= image_tag current_user.image_url,
+        class: "img-responsive img-circle img-thumbnail home-image intro-img" %>
+        Welcome <%= current_user.first_name %> !
+  </h1>
+  </div>
+  <h2 class="text-center intro">
+    Next up, what are your search preferences?
+  </h2>
+  <div class="dog-form" id="search-pref">
+    <%= link_to "x", root_path, class:"btn btn-default cancel" %>
+    <%= bootstrap_form_for [@search_preference],
+        :html => { multipart: true }  do |f| %>
+    <h3 class="text-center"> Breeds: </h3>
+    <div>
+      <%= f.select :breeds,
+                    ["- ALL -"]  + Selector.breed,
+                    { hide_label: true },
+                    { :multiple => true } %>
+    </div>
+    <h3 class="text-center"> Age: </h3>
+    <div>
+      <%= f.select :ages,
+                    ["- ALL -"] + Selector.age,
+                    { hide_label: true },
+                    { :multiple => true } %>
+    </div>
+    <h3 class="text-center"> Size: </h3>
+    <div>
+      <%= f.select :sizes,
+                    ["- ALL -"] + Selector.size,
+                    { hide_label: true},
+                    {:multiple => true } %>
+    </div>
+    <h3 class="text-center"> Gender: </h3>
+    <div>
+      <%= f.select :gender,
+                    ["- ALL -"] + Selector.gender,
+                    { hide_label: true},
+                    {:multiple => true } %>
+    </div>
+    <h3 class="text-center"> Distance: </h3>
+    <div>
+      <%= f.select :distance,
+                  (1..4).to_a + (5..25).step(5).to_a,
+                  { include_blank: '- ALL-', hide_label: true} %>
+    </div>
+    <%= f.hidden_field :dog_id, :value => current_dog.id %>
+    <%= f.submit "Submit", class: "btn btn-default btn-lg" %>
+    <% end %>
+  </div>
+</div

@@ -4,21 +4,21 @@
 </div>
   <h2 class="text-center intro"> In order to get started, tell us a little about your furry friend! </h2>
 <div class="dog-form">
-  <%= link_to "x", root_path, class:"btn btn-default cancel" %>
+  <%= link_to "x", :back, class:"btn btn-default cancel" %>
   <%= bootstrap_form_for [@dog],  :html => { multipart: true }  do |f| %>
   <h3 class="text-center"> Your Pup! </h3>
     <p class="text-center"> What makes them who they are?  </p>
   <div class="section">
-    <%= f.text_field :name, hide_label: true,       placeholder: "Name"  %>
-    <%= f.select :breed,    Selectors.breed_list,   hide_label: true  %>
-    <%= f.select :size,     Selectors.size_list,    hide_label: true %>
-    <%= f.select :age,      Selectors.age_list,     hide_label: true %>
-    <%= f.select :gender,   Selectors.gender_list,  hide_label: true %>
+    <%= f.text_field :name, hide_label: true,      placeholder: "Name"  %>
+    <%= f.select :breed,    Selector.breed_list,   hide_label: true  %>
+    <%= f.select :size,     Selector.size_list,    hide_label: true %>
+    <%= f.select :age,      Selector.age_list,     hide_label: true %>
+    <%= f.select :gender,   Selector.gender_list,  hide_label: true %>
     </br>
   </div>
   <h3 class="text-center"> Where do you play? </h3>
     <p class="text-center"><em>We are about your privacy! We will not share your location. </em> </p>
-  <div class="col-md-push-3 col-md-3 section">
+  <div class="col-md-push-2 col-md-4 section">
     <%= f.text_field :zipcode, hide_label: true, placeholder: "Zipcode" %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>

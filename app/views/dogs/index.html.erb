@@ -1,11 +1,14 @@
-<div class="container-fluid text-center show-container">
-  <h1><%= image_tag current_user.dogs.last.img.url, class: "img-responsive img-circle img-thumbnail home-image" %> Matches for <%= current_user.dogs.last.name %>! <h1>
-    <% @dogs.each do |dog| %>
-    <div class="col-md-4">
-      <h1 class="dog_name"><%=dog.name%></h1>
-      <%= image_tag dog.img.url, class: "img-responsive dog img-circle img-thumbnail" %>
-      <h4 class="no-bottom-margin"> <%=dog.city %> &middot <%=dog.gender%> &middot <%=dog.breed%></h4>
-      <h4 class="no-top-margin"> <%= dog.weight %> lbs &middot <%=dog.age%> yrs</h4>
-      <% end %>
-    </div>
+<%= render :partial => '/shared/nav'%>
+
+<div class="text-center index">
+  <h1> <%= current_user.first_name %>'s Dogs </h1>
+  <% current_user.dogs.each do |dog| %>
+      <h3> <%= dog.name %></h3>
+      <%= image_tag dog.img.url,
+      class: "img-responsive img-circle img-thumbnail home-image" %>
+      <h4 class="no-bottom-margin"> <%=dog.gender%> | <%=dog.breed%></h4>
+      <h4 class="no-top-margin"> <%= dog.size %></h4>
+      <h4 class="no-top-margin"> <%=dog.age%></h4>
+      <%= link_to "Select#{dog.id}", dog_path(dog.id) %>
+  <% end %>
 </div>

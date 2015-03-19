@@ -1,18 +1,28 @@
 <%= render :partial => '/shared/nav'%>
-
 <div class="container-fluid text-center show-container">
   <div class="dog-profile col-md-3">
     <h3> <%= current_dog.name %></h3>
-    <%= image_tag current_dog.img.url, class: "img-responsive img-circle img-thumbnail home-image" %>
-    <h4 class="no-bottom-margin"> <%=current_dog.gender%> | <%=current_dog.breed%></h4>
-    <h4 class="no-top-margin"> <%= current_dog.weight %></h4>
-    <h4 class="no-top-margin"> <%=current_dog.age%></h4>
+    <%= image_tag current_dog.img.url,
+        class: "img-responsive img-circle img-thumbnail home-image" %>
+        <h4 class="no-bottom-margin"> <%=current_dog.gender%> | <%=current_dog.breed%></h4>
+        <h4 class="no-top-margin"> <%= current_dog.size %></h4>
+        <h4 class="no-top-margin"> <%=current_dog.age%></h4>
+      <div class="below-profile">
+        <h3 class="options"> OPTIONS </h3>
+        <ul class="list-unstyled">
+          <li><%= link_to "Matches", matches_path %></li>
+          <li><%= link_to "Search Preferences",
+                  edit_search_preference_path(current_dog.search_preference) %></li>
+          <li><%= link_to "Add a dog", new_dog_path %> </li>
+          <li><%= link_to "Change dogs", dogs_path %></li>
+        </ul>
+      </div>
   </div>
   <div class=" col-md-9">
     <div class="col-md-3"></div>
     <div class="col-md-1 text-right red-paw">
       <%= bootstrap_form_for [@observation], :html => { multipart: true }  do |f| %>
-      <%= f.hidden_field :dog_id, :value => current_dog.id %>
+      <%= f.hidden_field :observer_id, :value => current_dog.id %>
       <%= f.hidden_field :observed_id, :value => @observed.id %>
       <%= f.hidden_field :liked, :value => false%>
       <button id="paw-btn">
@@ -26,18 +36,13 @@
         <p><%= (message).html_safe %></p>
         <% end %>
       </div>
-      <h1 class="dog_name"><%=@observed.name%></h1>
-      <%= image_tag @observed.img.url, class: "img-responsive match img-circle img-thumbnail" %>
-      <h4 class="no-bottom-margin"> <%= @observed.gender%> | <%= @observed.breed%></h4>
-      <h4 class="no-bottom-margin"> <%= rand(9)+1 %> miles away </h4>
-      <h4 class="no-top-margin"> <%=  @observed.weight %></h4>
-      <h4 class="no-top-margin"> <%= @observed.age%></h4>
-      <h4 class="grey-font"> Owned by <%= @observed.user.first_name %> <%= image_tag @observed.user.image_url, class: "img-circle home-image owner-img" %><h4>
+      <%= render "dog_profile" %>
     </div>
     <div class="col-md-1 text-left green-paw">
       <%= bootstrap_form_for [@observation], :html => { multipart: true }  do |f| %>
-      <%= f.hidden_field :dog_id, :value => current_dog.id %>
+      <%= f.hidden_field :observer_id, :value => current_dog.id %>
       <%= f.hidden_field :observed_id, :value => @observed.id %>
+      <%= f.hidden_field :distance, :value => current_dog.distance(@observed) %>
       <%= f.hidden_field :liked, :value => true %>
       <button id="paw-btn" >
         <i class="fa fa-paw "></i>

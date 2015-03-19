@@ -1,0 +1,14 @@
+<div class="text-center">
+  <h1 class="dog-form-banner">
+    <%= image_tag current_user.image_url,
+    class: "img-responsive img-circle img-thumbnail home-image intro-img" %>
+    Welcome <%= current_user.first_name %> !
+  </h1>
+    <h2> Let's find <%= current_dog.name %> some dates! </h2>
+      <h3> How it works... </h3>
+        <%= link_to "Skip the explanation, I want to get searching!", new_observation_path%>
+      <h3>picture goes here</h3>
+      <img src="http://loremflickr.com/300/300/puppy"/>
+        <p>then long explanation...</p>
+    <%= link_to "Got it! Let's begin searching!", new_observation_path, class: "btn btn-lg" %>
+</div>

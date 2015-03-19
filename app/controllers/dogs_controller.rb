@@ -3,23 +3,35 @@ class DogsController < ApplicationController
     @dog = Dog.new
   end
 
-  def index
-    @dogs = Dog.all
-  end
-
   def create
     @dog = Dog.new(dog_params)
-    @dog.img = params[:dog][:img].tempfile
+    @dog.img = params[:dog][:img].tempfile if params[:dog][:img]
     if @dog.save
-      redirect_to new_observation_path
+    session[:dog] = @dog.id
+      redirect_to new_search_preference_path
     else
       render :new
     end
   end
 
+  def index
+  end
+
+  def show
+    session[:dog] = params[:id]
+    redirect_to new_observation_path
+  end
+
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :age, :weight, :gender, :breed, :street, :city, :state, :zipcode, :images, :user_id)
+    params.require(:dog).permit(:name,
+                                :age,
+                                :size,
+                                :gender,
+                                :breed,
+                                :zipcode,
+                                :images,
+                                :user_id)
   end
 end

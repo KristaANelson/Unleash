@@ -1,7 +1,6 @@
-class Selectors
+class Selector
   def self.breed
     [
-      "Breed",
       "affenpinscher",
       "afghan hound",
       "afghan shepherd",
