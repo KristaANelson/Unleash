@@ -89,12 +89,11 @@ class Dog < ActiveRecord::Base
   end
 
   def location
-    #Geokit::Geocoders::GoogleGeocoder.geocode(zipcode, :bias => 'us')
+    Geokit::Geocoders::GoogleGeocoder.geocode(zipcode, :bias => 'us')
   end
 
   def distance(other_dog)
-    #location.distance_to(other_dog.location).round(1)
-    rand(9)
+    location.distance_to(other_dog.location).round(1)
   end
 
   def matches
