@@ -26,7 +26,7 @@ class Seed
 
   def female_names
     %w(Bella Lucy Daisy Molly Lola Sophie Sadie Maggie Chloe Bailey Roxy Zoey
-    Lily Luna Coco Stella Gracie Abby Penny Zoe Ginger Ruby Rosie Lilly Ellie 
+    Lily Luna Coco Stella Gracie Abby Penny Zoe Ginger Ruby Rosie Lilly Ellie
     Mia Sasha Lulu Pepper Nala Lexi Lady Emma Riley).shuffle[0]
   end
 
@@ -79,7 +79,7 @@ class Seed
     25.times do |i|
       Observation.create(
       observer_id: 2*i,
-      observed_id: (Dog.last.id + 1),
+      observed_id: (Dog.last.id + 3),
       liked: true,
       distance: rand(9) )
       puts "It's a match for #{Dog.first.name}"
