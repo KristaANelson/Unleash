@@ -5,7 +5,11 @@ class SearchPreferencesController < ApplicationController
 
   def create
     search = SearchPreference.create(search_params)
-    redirect_to observations_path
+    if current_user.dogs.count > 1
+      redirect_to new_observation_path
+    else
+      redirect_to observations_path
+    end
   end
 
   def edit
