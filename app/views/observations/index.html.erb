@@ -5,16 +5,13 @@
     Welcome <%= current_user.first_name %> !
   </h1>
 <div class="explain">
-      <h2> Let's find <%= current_dog.name %> some dates! </h2>
-          <h3> Skip the explanation, I want to get <%= link_to "searching!", new_observation_path%></h3>
-        <h3>It's quite simple, you've already made a profile for your dog. Now the fun begins!</h3>
-        <p>Based on your search preferences you'll be presented with a potential dog date!
-          If you think it could be a match click the green paw, if it's a for sure no... red paw.
-          <em>Careful</em> once you click no, there is no getting that match back!
-          Click the Matches link on the Nav bar to see the lucky dogs! </p>
-
+          <h3 class="next">  <%= link_to "Skip the Intro, time to search!", new_observation_path%></h3>
+      <h1> Let's find <%= current_dog.name %> some dates! </h2>
+        <h3> Click LEFT if it's a no go but think it has potentional? Click RIGHT!</h3>
+</br>
         <img src='/assets/example.png' id="example"/>
-          <p>then long explanation...</p>
-      <%= link_to "Got it! Let's begin searching!", new_observation_path, class: "btn btn-lg" %>
+        <h4><em>Careful</em> once you click no, there is no getting that match back!</br>
+          Click the Matches link on the Nav bar to see the lucky dogs! </h4>
+        <h3><%= link_to "Got it! Let's begin searching!", new_observation_path, class: "next" %></h3>
   </div>
 </div>
