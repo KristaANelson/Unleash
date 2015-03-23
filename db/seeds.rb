@@ -83,7 +83,7 @@ class Seed
         observed_id: 299 + i,
         liked: true,
         distance: rand(9) )
-        puts "It's a match for Dog with Id: #{(100 + i}"
+        puts "It's a match for Dog with Id: #{(100 + i)}"
       end
     end
   end
