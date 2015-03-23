@@ -77,13 +77,14 @@ class Seed
 
   def generate_observations
     25.times do |n|
+      dog_id = (300 + n)
       25.times do |i|
-        Observation.create(
+        Observation.create!(
         observer_id: 2*i,
-        observed_id: (300 + n),
+        observed_id: dog_id,
         liked: true,
         distance: rand(9) )
-        puts "It's a match for Dog with Id: #{(300 + n)}"
+        puts "It's a match for Dog with Id: #{dog_id}"
       end
     end
   end
