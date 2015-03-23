@@ -47,7 +47,7 @@ class Seed
   end
 
   def generate_dogs
-    49.times do |i|
+    50.times do |i|
       dog = Dog.create!(
       user_id:  i + 1 ,
       name:     male_names,
@@ -76,13 +76,14 @@ class Seed
   end
 
   def generate_observations
+  25.times do |n|
     25.times do |i|
       Observation.create(
       observer_id: 2*i,
-      observed_id: (Dog.last.id + 3),
+      observed_id: 100 + i,
       liked: true,
       distance: rand(9) )
-      puts "It's a match for #{Dog.first.name}"
+      puts "It's a match for Dog with Id: #{(100 + i}"
     end
   end
 end
