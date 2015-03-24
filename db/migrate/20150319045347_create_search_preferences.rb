@@ -7,6 +7,6 @@ class CreateSearchPreferences < ActiveRecord::Migration
       t.string :gender
       t.string :sizes
     end
-    add_foreign_key :search_preferences, :dog_ids
+    add_foreign_key :search_preferences, :dogs
   end
 end

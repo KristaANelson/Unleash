@@ -1,4 +1,4 @@
-<div class="container-fluid text-center welcome-page">
+<div class="container-fluid text-center">
   <div class="text-center main-image fixed">
     <div class="row">
       <div class="col-md-push-4 col-md-4">
@@ -8,49 +8,58 @@
       </div>
     </div>
   </div>
-    <div class="row site-descriptions">
-      <div class="col-md-2 desc"></div>
-      <div class="col-md-2 desc">
-        <h2><i class="glyphicon glyphicon-search search"></i> MEET </h2>
-        <p> Don't let your pet be cooped up all day! Get connected to local
-          dogs near you that are compatible for your K-9 loved one!
-        </p>
+  <div class="row site-descriptions">
+    <div class="col-md-2 desc"></div>
+    <div class="col-md-2 desc">
+      <h2><i class="glyphicon glyphicon-search search"></i> MEET </h2>
+      <p> Don't let your pet be cooped up all day! Get connected to local
+        dogs near you that are compatible for your K-9 loved one!
+      </p>
+    </div>
+    <div class="col-md-1 desc"></div>
+    <div class="col-md-2 desc">
+      <h2><i class="glyphicon glyphicon-heart heart"></i> PLAY</h2>
+      <p> Now that you found a match, get out and PLAY! Search lists of
+        local parks, bars and restaurants that dog friendly and a hit with
+        other dog owners!
+      </p>
+    </div>
+    <div class="col-md-1 desc"></div>
+    <div class="col-md-2 desc">
+      <h2><i class="glyphicon glyphicon-map-marker marker"></i> JOIN</h2>
+      <p> Browse through local community events that are dog friendly, start
+        a meetup, or be notified when a dog friendly event is scheduled near
+        you!
+      </p>
+    </div>
+  </div>
+    <div class="row reviews text-center">
+      <div class="col-md-push-1 col-md-3">
+        <%= image_tag "rocko.jpg",
+        class: "img-responsive img-circle img-thumbnail home-image" %>
       </div>
-      <div class="col-md-1 desc"></div>
-      <div class="col-md-2 desc">
-        <h2><i class="glyphicon glyphicon-heart heart"></i> PLAY</h2>
-        <p> Now that you found a match, get out and PLAY! Search lists of
-          local parks, bars and restaurants that dog friendly and a hit with
-          other dog owners!
-        </p>
-      </div>
-      <div class="col-md-1 desc"></div>
-      <div class="col-md-2 desc">
-        <h2><i class="glyphicon glyphicon-map-marker marker"></i> JOIN</h2>
-        <p> Browse through local community events that are dog friendly, start
-          a meetup, or be notified when a dog friendly event is scheduled near
-          you!
-        </p>
+      <div class="col-md-8">
+        <h2 class="review"> "My schedule gets busy fast, but why should my pet
+           pay the price? I've met some awesome neighbors, and Rocko has met
+           some great friends! We love getting together after work and letting
+           them wear each other out!" - Krista
+        </h2>
       </div>
     </div>
-      <div class="row reviews text-center">
-        <div class="col-md-push-1 col-md-3">
-          <#%= image_tag Dog.last.img.url, class: "img-responsive img-circle img-thumbnail home-image" %>
-        </div>
-        <div class="col-md-8">
-          <h2 class="review"> "Schedules get busy, but why should our pets pay the price? I've met some awesome neighbors, and Rocko has met some great friends! We love getting together after work and letting them wear each other out!" - Krista </h2>
-        </div>
-      </div>
     </div>
 
     <div class="row more-reviews text-center">
       <div class="col-md-2"></div>
-      <div class="col-md-8 better">
+      <div class="col-md-8 better-with-friends">
         <h4> Life is Better with Friends </h4>
-        <#%= image_tag Dog.first.img.url, class: "img-responsive img-circle img-thumbnail home-image" %>
-        <#%= image_tag Dog.find(10).img.url, class: "img-responsive img-circle img-thumbnail home-image" %>
-        <#%= image_tag Dog.find(19).img.url, class: "img-responsive img-circle img-thumbnail home-image" %>
-        <#%= image_tag Dog.find(7).img.url, class: "img-responsive img-circle img-thumbnail home-image" %>
+        <%= image_tag "puppy1.jpeg",
+            class: "img-responsive img-circle img-thumbnail home-image" %>
+        <%= image_tag "puppy3.jpeg",
+            class: "img-responsive img-circle img-thumbnail home-image" %>
+        <%= image_tag "puppy2.jpeg",
+            class: "img-responsive img-circle img-thumbnail home-image" %>
+        <%= image_tag "puppy4.jpeg",
+            class: "img-responsive img-circle img-thumbnail home-image" %>
       </div>
     </div>
   </div>
