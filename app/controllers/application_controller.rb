@@ -20,12 +20,6 @@ class ApplicationController < ActionController::Base
   end
 
   def matches
-    if current_dog
-      @matches = Observation.includes(:observed)
-                          .where(observer_id: current_dog.id,
-                                 observed_id: current_dog.matches)
-    else
-      []
-    end
+    @matches = Observation.matches(current_dog)
   end
 end
