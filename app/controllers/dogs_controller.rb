@@ -17,11 +17,6 @@ class DogsController < ApplicationController
   def index
   end
 
-  def show
-    session[:dog] = params[:id]
-    redirect_to new_observation_path
-  end
-
   private
 
   def dog_params

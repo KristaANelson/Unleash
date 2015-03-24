@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  after_action  :change_dog
 
   helper_method :current_user, :current_dog, :matches, :states
 
@@ -7,12 +8,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def change_dog
+    session[:dog] = params[:change_dog] if params[:change_dog]
+  end
+
   def current_dog
-    if Dog.where(id: session[:dog]).count == 1
-      @current_dog = Dog.find(session[:dog])
-    else
-      @current_dog = current_user.dogs.first
-    end
+    @current_dog = Dog.find(session[:dog]) if session[:user_id]
   end
 
   def authorize!
@@ -20,8 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def matches
-    @matches = Observation.includes(:observed)
-                          .where(observer_id: current_dog.id,
-                                 observed_id: current_dog.matches)
+    @matches = Observation.matches(current_dog)
   end
 end
