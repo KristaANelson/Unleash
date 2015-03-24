@@ -1,9 +1,14 @@
 <div>
   <div class="text-center">
     <h1 class="dog-form-banner">
-      <%= image_tag current_user.image_url, class: "img-responsive img-circle img-thumbnail home-image intro-img" %> Welcome <%= current_user.first_name %> ! </h1>
+      <%= image_tag current_user.image_url,
+          class: "img-responsive img-circle img-thumbnail intro-img" %>
+      Welcome <%= current_user.first_name %> !
+    </h1>
   </div>
-    <h2 class="text-center intro"> In order to get started, tell us a little about your furry friend! </h2>
+    <h2 class="text-center intro"> In order to get started, tell us a little
+      about your furry friend!
+    </h2>
   <div class="dog-form">
     <%= link_to "x", :back, class:"btn btn-default cancel" %>
     <%= bootstrap_form_for [@dog],  :html => { multipart: true }  do |f| %>
@@ -18,7 +23,8 @@
       </br>
     </div>
     <h3 class="text-center"> Where do you play? </h3>
-      <p class="text-center"><em>We are about your privacy! We will not share your location. </em> </p>
+      <p class="text-center"><em>We are about your privacy! We will not share
+        your location. </em> </p>
     <div class="col-md-push-2 col-md-4 section">
       <%= f.text_field :zipcode, hide_label: true, placeholder: "Zipcode" %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -27,10 +33,12 @@
     </br>
       <div class = "form-margin">
         <div class="row">
-          <h3 class="text-center"> Profile Image:</h3><p class="text-center"> So many cute pictures to choose from! </p>
+          <h3 class="text-center"> Profile Image:</h3><p class="text-center">
+            So many cute pictures to choose from! </p>
         <div class="col-md-3"></div>
         <div class="col-md-6 form-section text-center">
-          <%= f.file_field :img, :label => "Select Image to Upload ", class: "file"%> </br>
+          <%= f.file_field :img, :label => "Select Image to Upload ",
+          class: "file"%> </br>
         </div>
       </div>
     <%= f.submit "Submit", class: "btn btn-default btn-lg" %>

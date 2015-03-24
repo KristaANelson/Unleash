@@ -24,69 +24,35 @@ class Dog < ActiveRecord::Base
   validates :zipcode, length:   { is: 5 , message: "Invalid Zipcode"},
                       format:   { with: /[0-9]/, message: "Must be a number" }
 
-  scope :to_view,     ->(id)          { where.not(id: Dog.find(id).already_viewed) }
-  scope :by_breed,    ->(requested)   { where(breed: requested)}
-  scope :by_age,      ->(requested)   { where(age: requested)}
-  scope :by_size,     ->(requested)   { where(size: requested)}
-  scope :by_gender,   ->(requested)   { where(gender: requested)}
+  scope :not_viewed_by, ->(dog) { where.not(id: dog.already_viewed) }
 
-  def self.filters(id)
-    @selection = to_view(id)
-    filter_breeds(id)
-    filter_ages(id)
-    filter_sizes(id)
-    filter_gender(id)
-    @selection
+
+  def self.filter_breeds(requested)
+    return all if requested.include?("- ALL -") || requested.empty?
+    where(breed: requested)
   end
 
-  def self.breed_pref(id)
-    find(id).search_preference.breeds
+  def self.filter_ages(requested)
+    return all if requested.include?("- ALL -") || requested.empty?
+    where(age: requested)
   end
 
-  def self.age_pref(id)
-    find(id).search_preference.ages
+  def self.filter_sizes(requested)
+    return all if requested.include?("- ALL -") || requested.empty?
+    where(size: requested)
   end
 
-  def self.gender_pref(id)
-    find(id).search_preference.gender
+  def self.filter_gender(requested)
+    return all if requested.include?("- ALL -") || requested.empty?
+    where(gender: requested)
   end
 
-  def self.size_pref(id)
-    find(id).search_preference.sizes
-  end
-
-  def self.distance_pref(id)
-    find(id).search_preference.distance
-  end
-
-  def self.filter_breeds(id)
-    if !breed_pref(id).include?("- ALL -") && !breed_pref(id).empty?
-      @selection = @selection.by_breed(breed_pref(id))
-    end
-  end
-
-  def self.filter_ages(id)
-    if !age_pref(id).include?("- ALL -") && !age_pref(id).empty?
-      @selection = @selection.by_age(age_pref(id))
-    end
-  end
-
-  def self.filter_sizes(id)
-    if !size_pref(id).include?("- ALL -") && !size_pref(id).empty?
-      @selection = @selection.by_size(size_pref(id))
-    end
-  end
-
-  def self.filter_gender(id)
-    if !gender_pref(id).include?("- ALL -") && !size_pref(id).empty?
-      @selection = @selection.by_gender(gender_pref(id))
-    end
-  end
-
-  def self.filter_distance(id)
-    if !distance_pref(id).empty?
-      @selection = @selection.by_distance(distance_pref(id))
-    end
+  def self.apply_filters(dog)
+    requested = dog.search_preference
+    not_viewed_by(dog).filter_breeds(requested.breeds)
+                      .filter_ages(requested.ages)
+                      .filter_sizes(requested.sizes)
+                      .filter_gender(requested.gender)
   end
 
   def location
