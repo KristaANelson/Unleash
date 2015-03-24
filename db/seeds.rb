@@ -76,58 +76,15 @@ class Seed
   end
 
   def generate_observations
-    25.times do |i|
-      Observation.create(
-      observer_id: 2*i,
-      observed_id: (Dog.last + 1),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match!"
-    end
-
-    25.times do |i|
-      Observation.create(
-      observer_id: 2*i,
-      observed_id: (Dog.last + 2),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match!"
-    end
-
-    25.times do |i|
-      Observation.create(
-      observer_id: 2*i,
-      observed_id: (Dog.last + 3),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match!"
-    end
-
-    25.times do |i|
-      Observation.create(
-      observer_id: 2*i,
-      observed_id: (Dog.last + 4),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match!"
-    end
-
-    25.times do |i|
-      Observation.create(
-      observer_id: 2*i,
-      observed_id: (Dog.last + 5),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match!"
-    end
-
-    25.times do |i|
-      Observation.create(
-      observer_id: 2*i,
-      observed_id: (Dog.last + 5),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match!"
+    50.times do |n|
+      25.times do |i|
+        Observation.create(
+        observer_id: 2*i,
+        observed_id: (Dog.last.id + n),
+        liked: true,
+        distance: rand(9) )
+        puts "It's a match!"
+      end
     end
   end
 end
