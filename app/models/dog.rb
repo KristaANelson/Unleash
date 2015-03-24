@@ -7,7 +7,7 @@ class Dog < ActiveRecord::Base
   has_many :views, class_name: "Observation", foreign_key: "observer_id"
   has_many :viewed_by,  class_name:  "Observation", foreign_key: "observed_id"
   has_attached_file :img, storage: :s3, bucket: ENV['BUCKET_NAME'],
-                          default_url: "http://loremflickr.com/300/300/puppy"
+                          default_url: "puppy1.jpeg"
 
   validates_attachment_content_type :img, :content_type => /\Aimage\/.*\Z/
   validates :age,     inclusion: {  in:       Selector.age,

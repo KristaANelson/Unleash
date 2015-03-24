@@ -9,6 +9,6 @@
       <h4 class="no-bottom-margin"> <%=dog.gender%> | <%=dog.breed%></h4>
       <h4 class="no-top-margin"> <%= dog.size %></h4>
       <h4 class="no-top-margin"> <%=dog.age%></h4>
-      <%= link_to "Select#{dog.id}", new_observation_path(dog_id: dog.id ) %>
+      <%= link_to "Select#{dog.id}", new_observation_path(change_dog: dog.id ) %>
   <% end %>
 </div>
