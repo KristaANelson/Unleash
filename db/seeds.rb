@@ -3,8 +3,8 @@ class Seed
     p "=============================="
     p "Seeding started"
     p "=============================="
-    #generate_users
-    #generate_dogs
+    generate_users
+    generate_dogs
     generate_observations
     p "=============================="
     p "Seed data loaded"
@@ -76,15 +76,13 @@ class Seed
   end
 
   def generate_observations
-    25.times do
-      25.times do |i|
-        Observation.create!(
-        observer_id: 2*i,
-        observed_id: (Dog.last.id + 1),
-        liked: true,
-        distance: rand(9) )
-        puts "It's a match for Dog with Id: #{(Dog.last.id + 1)}"
-      end
+    25.times do |i|
+      Observation.create(
+      observer_id: 2*i,
+      observed_id: (Dog.last + i),
+      liked: true,
+      distance: rand(9) )
+      puts "It's a match!"
     end
   end
 end
