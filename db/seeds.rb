@@ -76,94 +76,15 @@ class Seed
   end
 
   def generate_observations
-    25.times do |i|
-      Observation.create!(
-      observer_id: 2*i,
-      observed_id: (301),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match for Dog with Id: 301}"
-    end
-
-    25.times do |i|
-      Observation.create!(
-      observer_id: 2*i,
-      observed_id: (302),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match for Dog with Id: 302}"
-    end
-
-    25.times do |i|
-      Observation.create!(
-      observer_id: 2*i,
-      observed_id: (303),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match for Dog with Id: 303}"
-    end
-
-    25.times do |i|
-      Observation.create!(
-      observer_id: 2*i,
-      observed_id: (304),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match for Dog with Id: 304}"
-    end
-
-    25.times do |i|
-      Observation.create!(
-      observer_id: 2*i,
-      observed_id: (305),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match for Dog with Id: 305}"
-    end
-
-    25.times do |i|
-      Observation.create!(
-      observer_id: 2*i,
-      observed_id: (306),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match for Dog with Id: 306}"
-    end
-
-    25.times do |i|
-      Observation.create!(
-      observer_id: 2*i,
-      observed_id: (307),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match for Dog with Id: 307}"
-    end
-
-    25.times do |i|
-      Observation.create!(
-      observer_id: 2*i,
-      observed_id: (308),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match for Dog with Id: 308}"
-    end
-
-    25.times do |i|
-      Observation.create!(
-      observer_id: 2*i,
-      observed_id: (309),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match for Dog with Id: 309}"
-    end
-
-    25.times do |i|
-      Observation.create!(
-      observer_id: 2*i,
-      observed_id: (310),
-      liked: true,
-      distance: rand(9) )
-      puts "It's a match for Dog with Id: 310}"
+    25.times do
+      25.times do |i|
+        Observation.create!(
+        observer_id: 2*i,
+        observed_id: (Dog.last.id + 1),
+        liked: true,
+        distance: rand(9) )
+        puts "It's a match for Dog with Id: #{(Dog.last.id + 1)}"
+      end
     end
   end
 end
