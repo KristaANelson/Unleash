@@ -4,5 +4,5 @@ class Observation < ActiveRecord::Base
 
   scope :matches, ->(current_dog) { includes(:observed)
                                     .where(observer_id: current_dog.id,
-                                    observed_id: current_dog.matches)
+                                    observed_id: current_dog.matches) }
 end
