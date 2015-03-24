@@ -7,7 +7,7 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @dog.img = params[:dog][:img].tempfile if params[:dog][:img]
     if @dog.save
-    session[:dog] = @dog.id
+      session[:dog_id] = @dog.id
       redirect_to new_search_preference_path
     else
       render :new

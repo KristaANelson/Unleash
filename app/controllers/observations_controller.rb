@@ -1,6 +1,7 @@
 class ObservationsController < ApplicationController
   def new
-    @observed = Dog.filters(current_dog.id).first
+    redirect_to dog_path(current_dog) if Dog.apply_filters(current_dog).empty?
+    @observed = Dog.apply_filters(current_dog)[0]
     @observation = Observation.new
   end
 

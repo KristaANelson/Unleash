@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
     user.save!
     user
   end
+
+  def first_dog
+    dogs.empty?
+  end
 end
