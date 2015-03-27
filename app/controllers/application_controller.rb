@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def change_dog
-    session[:dog_id] = params[:change_dog] if params[:change_dog]
+    @current_dog = Dog.find(params[:change_dog]) if params[:change_dog]
   end
 
   def current_dog
