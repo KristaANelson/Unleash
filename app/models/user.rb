@@ -13,6 +13,6 @@ class User < ActiveRecord::Base
   end
 
   def first_dog
-    dogs.empty?
+    dogs.count == 1
   end
 end

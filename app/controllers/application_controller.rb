@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_dog
-    @current_dog = Dog.find(session[:dog_id]) if session[:dog_id]
+    @current_dog ||= current_user.dogs.first if current_user.dogs.first
   end
 
   def authorize!
