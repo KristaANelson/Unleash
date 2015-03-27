@@ -5,8 +5,11 @@ class SearchPreferencesController < ApplicationController
 
   def create
     SearchPreference.create(search_params)
-    redirect_to introduction_path if current_user.first_dog
-    redirect_to new_observation_path
+    if current_user.first_dog
+      redirect_to introduction_path
+    else
+      redirect_to new_observation_path
+    end
   end
 
   def edit
