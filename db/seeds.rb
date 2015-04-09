@@ -47,7 +47,7 @@ class Seed
   end
 
   def generate_dogs
-    50.times do |i|
+    20.times do |i|
       dog = Dog.create!(
       user_id:  i + 1 ,
       name:     male_names,
@@ -60,7 +60,7 @@ class Seed
       )
       puts "Dog #{i + 1}: #{dog.name} created!"
     end
-    50.times do |i|
+    20.times do |i|
       dog = Dog.create!(
       user_id:  i + 51 ,
       name:     female_names,
