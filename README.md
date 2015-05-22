@@ -9,7 +9,7 @@ Great for those who have busy work schedules and want to find a neighbor that yo
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Josh Cheek
+Copyright (c) 2015 Krista Nelson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
