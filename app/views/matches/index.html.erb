@@ -1,7 +1,7 @@
 <%= render :partial => '/shared/nav'%>
 
 <div class="container-fluid text-center show-container">
-  <% if @matches.count == 0 %>
+  <% if matches.count == 0 %>
   <h1 ><%= image_tag current_user.dogs.first.img.url,
   class: "img-responsive img-circle img-thumbnail match" %>
   Matches for
@@ -18,7 +18,7 @@
           Matches for
       <%= current_user.dogs.first.name %>!
   <h1>
-    <% @matches.each do |match| %>
+    <% matches.each do |match| %>
     <div class="col-md-3">
       <h1 class="dog_name"><%=match.observed.name%></h1>
       <%= image_tag match.observed.img.url,
