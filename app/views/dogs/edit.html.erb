@@ -1,0 +1,5 @@
+<%= form_for @dog do |f| %>
+  <%= f.cropbox :img %>
+  <%= f.crop_preview :img %>
+  <%= f.submit 'Save' %>
+<% end %>
