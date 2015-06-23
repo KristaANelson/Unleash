@@ -4,10 +4,10 @@ class DogsController < ApplicationController
   end
 
   def create
-    @dog = Dog.new(dog_params)
-    @dog.img = params[:dog][:img].tempfile if params[:dog][:img]
-    if @dog.save
-      @current_dog = @dog
+    dog = Dog.new(dog_params)
+    dog.img = params[:dog][:img].tempfile if params[:dog][:img]
+    if dog.save
+      @current_dog = dog
       redirect_to new_search_preference_path
     else
       render :new
