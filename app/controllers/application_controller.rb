@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def matches
-    @matches = Observation.matches(current_dog) || []
+    @matches = Observation.matches(current_dog)
   end
 end
